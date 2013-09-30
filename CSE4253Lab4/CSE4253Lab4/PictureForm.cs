@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace CollectionViewer
 {
-    static class Program
+    static class PictureForm
     {
         /// <summary>
         /// The main entry point for the application.

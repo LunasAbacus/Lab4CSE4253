@@ -22,5 +22,10 @@ namespace ArtworkCollection
                 categories.Add(category);
             }
         }
+
+        public IList<string> getCategories()
+        {
+            return categories;
+        }
     }
 }

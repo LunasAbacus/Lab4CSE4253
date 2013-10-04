@@ -44,11 +44,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.websiteBox = new System.Windows.Forms.TextBox();
+            this.authorBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.titleBox = new System.Windows.Forms.TextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -126,8 +126,9 @@
             // newPictureToolStripMenuItem
             // 
             this.newPictureToolStripMenuItem.Name = "newPictureToolStripMenuItem";
-            this.newPictureToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.newPictureToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newPictureToolStripMenuItem.Text = "New Picture";
+            this.newPictureToolStripMenuItem.Click += new System.EventHandler(this.newPictureToolStripMenuItem_Click);
             // 
             // splitContainer1
             // 
@@ -155,6 +156,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(154, 542);
             this.listBox1.TabIndex = 0;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // tableLayoutPanel1
             // 
@@ -166,11 +168,11 @@
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox3, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.websiteBox, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.authorBox, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.comboBox1, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.titleBox, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.numericUpDown1, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 5);
@@ -249,21 +251,21 @@
             this.label2.Text = "Author";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox3
+            // websiteBox
             // 
-            this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox3.Location = new System.Drawing.Point(67, 79);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(564, 20);
-            this.textBox3.TabIndex = 10;
+            this.websiteBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.websiteBox.Location = new System.Drawing.Point(67, 79);
+            this.websiteBox.Name = "websiteBox";
+            this.websiteBox.Size = new System.Drawing.Size(564, 20);
+            this.websiteBox.TabIndex = 10;
             // 
-            // textBox2
+            // authorBox
             // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Location = new System.Drawing.Point(67, 28);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(564, 20);
-            this.textBox2.TabIndex = 9;
+            this.authorBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.authorBox.Location = new System.Drawing.Point(67, 28);
+            this.authorBox.Name = "authorBox";
+            this.authorBox.Size = new System.Drawing.Size(564, 20);
+            this.authorBox.TabIndex = 9;
             // 
             // label1
             // 
@@ -289,13 +291,13 @@
             this.comboBox1.Size = new System.Drawing.Size(564, 21);
             this.comboBox1.TabIndex = 7;
             // 
-            // textBox1
+            // titleBox
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.textBox1.Location = new System.Drawing.Point(67, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(564, 20);
-            this.textBox1.TabIndex = 8;
+            this.titleBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.titleBox.Location = new System.Drawing.Point(67, 3);
+            this.titleBox.Name = "titleBox";
+            this.titleBox.Size = new System.Drawing.Size(564, 20);
+            this.titleBox.TabIndex = 8;
             // 
             // numericUpDown1
             // 
@@ -339,6 +341,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel2
             // 
@@ -391,7 +394,6 @@
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "PictureViewer";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -425,9 +427,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox websiteBox;
+        private System.Windows.Forms.TextBox authorBox;
+        private System.Windows.Forms.TextBox titleBox;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;

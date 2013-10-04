@@ -25,7 +25,7 @@ namespace ArtworkCollection
 
         public override string  ToString()
         {
- 	        return title;
+ 	        return Title;
         }
     }
 }

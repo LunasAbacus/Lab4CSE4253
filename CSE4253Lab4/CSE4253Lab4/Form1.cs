@@ -30,7 +30,37 @@ namespace CollectionViewer
             this.listBox1.DataSource = bindingArtLib;
             this.listBox1.DisplayMember = "Title";
 
-            this.comboBox1.DataSource = categories;
+            this.comboBox1.DataSource = categories.getCategories();
+        }
+
+        private void newPictureToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ArtInfo newArt = new ArtInfo();
+            bindingArtLib.Add(newArt);
+            this.listBox1.SetSelected(artLib.Count - 1, true);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int index = this.listBox1.SelectedIndex;
+            ArtInfo selectedArt = this.listBox1.SelectedItem as ArtInfo;
+            if (selectedArt != null)
+            {
+                selectedArt.author = this.authorBox.Text;
+                //selectedArt.category = categories.getCategories()[comboBox1.SelectedIndex];
+                selectedArt.Title = this.titleBox.Text;
+                selectedArt.website = this.websiteBox.Text;
+                selectedArt.year = (int) this.numericUpDown1.Value;
+            }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ArtInfo art = (ArtInfo)this.listBox1.SelectedItem;
+            if (art != null)
+            {
+                this.titleBox.Text = art.Title;
+            }
         }
     }
 }
